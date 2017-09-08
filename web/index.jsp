@@ -10,9 +10,11 @@
      prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions"
     prefix="fn" %>
+
+
 <html>
 <head><title>Hello</title></head>
-...
+<form method="POST" action="">
 <input type="text" name="username" size="25">
 <p></p>
 <input type="submit" value="Submit">
@@ -24,3 +26,19 @@
 </c:if>
 </body>
 </html>
+
+
+<c:forEach var="book" begin="0" items="${books.rows}">
+    <h2>${book.title}</h2>
+    &nbsp;<fmt:message key="By"/> <em>${book.firstname}
+    ${book.surname}</em>&nbsp;&nbsp;
+    (${book.year})<br> &nbsp; <br>
+    <h4><fmt:message key="Critics"/></h4>
+    <blockquote>${book.description}</blockquote>
+    <h4><fmt:message key="ItemPrice"/>:
+     <fmt:formatNumber value="${book.price}" type="currency"/>
+     </h4>
+</c:forEach>
+    
+    
+    
